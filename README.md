@@ -10,6 +10,11 @@ See also: [snipgpt.nvim](https://github.com/cristianoliveira/snipgpt.nvim)
 
 ## Usage
 
+Prerequisite: Make sure you have set `OPENAI_API_KEY` [instructions](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
+```bash
+export OPENAI_API_KEY=yourkey
+```
+
 As a repl:
 ```bash
 npx snipgpt
