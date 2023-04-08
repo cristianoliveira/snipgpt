@@ -58,5 +58,9 @@ const requestSnippet = async (request) => {
 };
 
 process.stdin.on("data", async (data) => {
+  if (data.length < 2) {
+    return;
+  }
+
   await requestSnippet(data.toString());
 });
