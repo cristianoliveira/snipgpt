@@ -4,7 +4,8 @@
   "description": "Snippets generator using LLM",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "start": "node src/index.js",
+    "test": "echo 'no tests configured'"
   },
   "keywords": [
     "snippets",
@@ -14,5 +15,9 @@
     "code"
   ],
   "author": "Cristian Oliveira",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  }
 }
