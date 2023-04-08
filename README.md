@@ -1,6 +1,6 @@
 # snipgpt
 
-A CLI to generate short snippets using Openai LLM
+A CLI to generate short snippets using OpenAI LLM
 
 ### Demo
 
@@ -33,6 +33,8 @@ npm start
 It will open a prompt where you can request for short snippets. It also works
 for other stuff, for instance, to ask for examples of how to use a given
 command from the coreutils.
+
+It allows you to pipe request. See: `./example.sh`
 
 ## LICENSE
 
