@@ -4,6 +4,7 @@ const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
 const PROMPT_TEMPLATE = `Take my request and generate a code snippet.
@@ -49,9 +50,10 @@ const requestSnippet = async (request) => {
     stop: ["---"],
   });
 
-  console.log(response.choices[0]?.text);
+  console.log(response.choices[0]?.text, "\n");
 };
 
-process.stdin.on("data", function (data) {
-  requestSnippet(data.toString());
+process.stdin.on("data", async (data) => {
+  await requestSnippet(data.toString());
+  console.log("\n");
 });
