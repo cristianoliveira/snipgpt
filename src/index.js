@@ -15,14 +15,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const PROMPT_TEMPLATE = `Take my request and generate a code snippet.
-Request: bash: Check if a variable is not empty
+Request: "bash: Check if a variable is not empty"
 Snippet:if [ -n "$my_variable" ]; then
     echo "my_variable is not empty"
 else
     echo "my_variable is empty"
 fi
 
-Request: array reduce with short explaining comments in js
+Request: "array reduce with short explaining comments in js"
 Snippet:// reduce takes an array and reduces it to a single value
 const array = [1, 2, 3, 4];
 const reducedValue = array.reduce((accumulator, currentValue) => {
