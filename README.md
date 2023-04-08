@@ -2,9 +2,25 @@
 
 A CLI to generate short snippets using OpenAI LLM
 
+See also: [snipgpt.nvim](https://github.com/cristianoliveira/snipgpt.nvim)
+
 ### Demo
 
 ![snipgpt demo](https://raw.githubusercontent.com/cristianoliveira/snipgpt/main/snipgpt-demo.png)
+
+## Usage
+
+As a repl:
+```bash
+npx snipgpt
+# another example
+npx snipgpt > index.js
+```
+
+Pipe a request
+```bash
+echo "post json using curl" | npx snigpt
+```
 
 ## Getting started
 
