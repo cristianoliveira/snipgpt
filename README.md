@@ -19,7 +19,7 @@ npx snipgpt > index.js
 
 Pipe a request
 ```bash
-echo "post json using curl" | npx snigpt
+echo "post json using curl" | npx snipgpt
 ```
 
 ## Getting started
