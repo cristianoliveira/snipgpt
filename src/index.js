@@ -1,5 +1,12 @@
+#! /usr/bin/env node
+
 require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
+
+if (!process.env.OPENAI_API_KEY) {
+  console.error("Missing OPENAI_API_KEY environment variable");
+  process.exit(1); // exits the process with an error code of 1
+}
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
