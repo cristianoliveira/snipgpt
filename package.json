@@ -1,8 +1,12 @@
 {
   "name": "snipgpt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Snippets generator using LLM",
-  "main": "index.js",
+  "main": "src/index.mjs",
+  "type": "module",
+  "bin": {
+    "snipgpt": "src/index.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "echo 'no tests configured'"
