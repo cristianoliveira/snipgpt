@@ -9,16 +9,14 @@ const openai = new OpenAIApi(configuration);
 
 const PROMPT_TEMPLATE = `Take my request and generate a code snippet.
 Request: bash: Check if a variable is not empty
-Response:
-if [ -n "$my_variable" ]; then
+Snippet:if [ -n "$my_variable" ]; then
     echo "my_variable is not empty"
 else
     echo "my_variable is empty"
 fi
 
 Request: array reduce with short explaining comments in js
-Response:
-// reduce takes an array and reduces it to a single value
+Snippet:// reduce takes an array and reduces it to a single value
 const array = [1, 2, 3, 4];
 const reducedValue = array.reduce((accumulator, currentValue) => {
   // accumulator is the running total of the reduction
@@ -29,14 +27,13 @@ const reducedValue = array.reduce((accumulator, currentValue) => {
 console.log(reducedValue); // 10
 
 Request: "Print all variables of a list, in pseudo-code"
-Response:
-// list is an array of variables
+Snippet:// list is an array of variables
 for each variable in list:
     print variable
 end
 ---
 Request: "{request}"
-Response:`;
+Snippet:`;
 
 const requestSnippet = async (request) => {
   const { data: response } = await openai.createCompletion({
@@ -50,10 +47,9 @@ const requestSnippet = async (request) => {
     stop: ["---"],
   });
 
-  console.log(response.choices[0]?.text, "\n");
+  console.log(response.choices[0]?.text);
 };
 
 process.stdin.on("data", async (data) => {
   await requestSnippet(data.toString());
-  console.log("\n");
 });
