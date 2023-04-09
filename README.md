@@ -4,15 +4,14 @@ A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](http
 
 ### Why
 
-> When working with an unfamiliar language/lib/coreutils, sometimes I just don't remember the syntax. I just need a snippet to remember how it works. Using Google takes too long. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is too annoying (and expensive).
+> When working with an unfamiliar language/lib/coreutils, sometimes I just don't remember the syntax. I just need a snippet to remember how it works. Using Google takes too long. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is a bit inconvenient (and expensive).
 >
 > -- Impatient developer
 
 Common usages:
 
-- SHELL: Looking for a snippet to use curl and send JSON data.
-- BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like
-  check if a variable is empty or loop through lists, because of the bash's odd syntax.
+- SHELL: Looking for a snippet to use curl and send JSON data. Or I need to use some advanced feature of a CLI like `sed` or `awk`.
+- BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like check if a variable is empty or loop through lists, because of the bash's odd syntax.
 - CSS: I know a given selector/property exists, but I forgot the syntax and arguments.
 - BOILERPLATE: Sometimes I just need a quick boilerplate to start experimenting on something or just to getting started. (see examples below)
 - ETC: Any case where I know what I want to do, but the syntax is on the way. :)
@@ -35,7 +34,13 @@ As a repl:
 npx snipgpt
 ```
 
-Pipe a request
+Pass the request directly
+
+```bash
+npx snipgpt loop in COBOL
+```
+
+Pipe a request to it
 
 ```bash
 echo "post json using curl" | npx snipgpt
@@ -89,4 +94,4 @@ See: `./example.sh`
 
 ## LICENSE
 
-I don't care. AKA MIT.
+The dude abides. AKA MIT.
