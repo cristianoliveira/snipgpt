@@ -1,8 +1,20 @@
 # snipgpt
 
-A CLI to generate short snippets using OpenAI LLM
+A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](https://github.com/cristianoliveira/snipgpt.nvim))
 
-See also: [snipgpt.nvim](https://github.com/cristianoliveira/snipgpt.nvim)
+### Why
+
+> When working with an unfamiliar language/lib/coreutils, sometimes I just don't remember the syntax. I just need a snippet to remember how it works. Using Google takes too long. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is too annoying (and expensive). 
+> 
+> -- Impatient developer
+
+Common usages:
+
+- CLIs: Looking for a snippet to use curl and send json data
+- CSS: I know a given selector/property exist I forgot the syntax and arguments
+- BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like
+check if a variable is empty, loop throw lists.
+- ETC: Any case where I know what I want to do but the syntax is on the way :)
 
 ### Demo
 
