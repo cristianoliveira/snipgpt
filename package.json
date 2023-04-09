@@ -1,7 +1,7 @@
 {
   "name": "snipgpt",
-  "version": "0.0.2",
-  "description": "Snippets generator using LLM",
+  "version": "0.0.3",
+  "description": "A CLI to generate short snippets using OpenAI LLM",
   "main": "src/index.mjs",
   "type": "module",
   "bin": {
@@ -16,11 +16,14 @@
     "chatgpt",
     "llm",
     "tooling",
-    "code"
+    "code",
+    "openai",
+    "copilot"
   ],
   "author": "Cristian Oliveira",
   "license": "MIT",
   "dependencies": {
+    "commander": "^10.0.0",
     "dotenv": "^16.0.3",
     "openai": "^3.2.1"
   }
