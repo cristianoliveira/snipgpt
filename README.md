@@ -11,9 +11,9 @@ A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](http
 Common usages:
 
 - CLIs: Looking for a snippet to use curl and send json data
-- CSS: I know a given selector/property exist I forgot the syntax and arguments
+- CSS: I know a given selector/property exists, but I forgot the syntax and arguments
 - BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like
-check if a variable is empty, loop throw lists.
+check if a variable is empty or loop through lists, because of the bash's odd syntax.
 - ETC: Any case where I know what I want to do but the syntax is on the way :)
 
 ### Demo
