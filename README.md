@@ -10,12 +10,12 @@ A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](http
 
 Common usages:
 
-- CLIs: Looking for a snippet to use curl and send json data
-- CSS: I know a given selector/property exists, but I forgot the syntax and arguments
+- CLIs: Looking for a snippet to use curl and send json data.
 - BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like
 check if a variable is empty or loop through lists, because of the bash's odd syntax.
-- BOILERPLATES: Sometimes I just need a quick boilerplate to start experimenting on something or just to get starting. (see examples below)
-- ETC: Any case where I know what I want to do but the syntax is on the way :)
+- CSS: I know a given selector/property exists, but I forgot the syntax and arguments.
+- BOILERPLATES: Sometimes I just need a quick boilerplate to start experimenting on something or just to getting started. (see examples below)
+- ETC: Any case where I know what I want to do but the syntax is on the way. :)
 
 ### Demo
 
@@ -69,7 +69,7 @@ cp .env.example .env
 echo "OPENAI_API_KEY=your-key" > .env
 ```
 
-All good. Now run start it:
+All good. Now run it:
 
 ```bash
 npm start
