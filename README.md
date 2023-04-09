@@ -14,6 +14,7 @@ Common usages:
 - CSS: I know a given selector/property exists, but I forgot the syntax and arguments
 - BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like
 check if a variable is empty or loop through lists, because of the bash's odd syntax.
+- BOILERPLATES: Sometimes I just need a quick boilerplate to start experimenting on something or just to get starting. (see examples below)
 - ETC: Any case where I know what I want to do but the syntax is on the way :)
 
 ### Demo
@@ -35,17 +36,20 @@ npx snipgpt
 Pipe a request
 ```bash
 echo "post json using curl" | npx snipgpt
-# For boilerplate
 ```
 
 To generate a boilerplate of any kind
 ```bash
 echo "node: a package.json for an express app" | npx snipgpt > package.json
 echo "node: an express app running on port 8888" | npx snipgpt > index.js 
-npm i & npm start
-```
-It gets the boilerplate right with an incredible accuracy :)
 
+npm i & npm start # It gets the boilerplate right with an incredible accuracy :)
+```
+
+Generate generic documentations
+```bash
+echo "a readme of a node app, with 'getting started', 'installation' and 'running' sections" | npx snipgpt > README.md
+```
 
 ## Getting started
 
@@ -79,4 +83,4 @@ It allows you to pipe request. See: `./example.sh`
 
 ## LICENSE
 
-I don't care. AKA: MIT.
+I don't care. AKA MIT.
