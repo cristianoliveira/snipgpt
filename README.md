@@ -30,14 +30,22 @@ export OPENAI_API_KEY=yourkey
 As a repl:
 ```bash
 npx snipgpt
-# another example
-npx snipgpt > index.js
 ```
 
 Pipe a request
 ```bash
 echo "post json using curl" | npx snipgpt
+# For boilerplate
 ```
+
+To generate a boilerplate of any kind
+```bash
+echo "node: a package.json for an express app" | npx snipgpt > package.json
+echo "node: an express app running on port 8888" | npx snipgpt > index.js 
+npm i & npm start
+```
+It gets the boilerplate right with an incredible accuracy :)
+
 
 ## Getting started
 
