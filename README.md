@@ -4,7 +4,9 @@ A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](http
 
 ### Why
 
-> When working with an unfamiliar language/lib/coreutils, sometimes I just don't remember the syntax. I just need a snippet to remember how it works. Using Google takes too long. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is a bit inconvenient, it works only on an IDE, and is expensive compared to openai.
+**I know what I want to do, but the syntax is on the way.** :)
+
+> Sometimes I just don't remember the syntax when working with a language/lib/coreutils and I just need a snippet to remember how it works. Using Google takes too long and more often than not to useless places. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is a bit inconvenient, it works only on an IDE, and is expensive compared to openai.
 >
 > -- Impatient developer
 
@@ -14,8 +16,8 @@ Common usages:
 - BASH: Sometimes I like to create small bash scripts, but I forget every single time how to do simple things like check if a variable is empty or loop through lists, because of the bash's odd syntax.
 - CSS: I know a given selector/property exists, but I forgot the syntax and arguments.
 - BOILERPLATE: Sometimes I just need a quick boilerplate to start experimenting on something or just to getting started. (see examples below)
-
-**It works in any case where I know what I want to do, but the syntax is on the way.**  :)
+- TEST: To start testing a module, I just need a snippet test scenario and I expand from there.
+- ALGORITHMS: I know an algorithm that solves the issue, but I don't remember how to implement it.
 
 ### Demo
 
@@ -92,6 +94,16 @@ for other stuff, for instance, to ask for examples of how to use a given
 command from the coreutils.
 
 See: `./example.sh`
+
+### Automated checks
+
+Running unit tests
+
+```bash
+npm test
+# or
+npm test -- --watch
+```
 
 ## LICENSE
 
