@@ -41,9 +41,5 @@ export default async (request, openai) => {
     stop: ["---"],
   });
 
-  if (!response.choices[0]) {
-    return "";
-  }
-
-  return response.choices[0].text;
+  return response.choices[0]?.text;
 };
