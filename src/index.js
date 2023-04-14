@@ -6,31 +6,56 @@ import { config } from "dotenv";
 import packageJson from "./package.cjs";
 
 import openaiInit from "./openai.js";
+import { loadPlugins, usePluginsFor } from "./plugins.js";
 import requestSnippet from "./snippet-requester.js";
 
 config();
 
-program
+const cliArgumentParser = program
   .name("snipgpt")
   .version(packageJson.version, "-v, --version")
   .description(packageJson.description)
   .argument("[request]", "Use arguments as string to request snippets")
-  .parse();
+  .option("--exp-plugin")
+  .allowUnknownOption(); // Allow flags for plugins
 
 const openai = openaiInit();
 
-if (program.args.length) {
-  const snippet = await requestSnippet(program.args.join(" "), openai);
+cliArgumentParser.parse();
 
-  if (snippet) {
-    console.log(snippet);
+const opts = cliArgumentParser.opts();
+// Experimental plugins
+if (opts.expPlugin) {
+  loadPlugins();
+}
+
+await usePluginsFor("onStart", cliArgumentParser.opts());
+
+if (cliArgumentParser.args.length) {
+  const request = cliArgumentParser.args.join(" ");
+  const snippet = await requestSnippet(request, openai);
+
+  const snippetPosRequest = await usePluginsFor(
+    "onSnippetRequestResponse",
+    snippet
+  );
+
+  if (snippetPosRequest) {
+    console.log(snippetPosRequest);
   }
 } else {
   process.stdin.on("data", async (data) => {
-    const snippet = await requestSnippet(data?.toString(), openai);
+    const snippet = await requestSnippet(`${data}`, openai);
 
-    if (snippet) {
-      console.log(snippet);
+    const snippetPosRequest = await usePluginsFor(
+      "onSnippetRequestResponse",
+      snippet
+    );
+
+    if (snippetPosRequest) {
+      console.log(snippetPosRequest);
     }
   });
 }
+
+await usePluginsFor("onClose");

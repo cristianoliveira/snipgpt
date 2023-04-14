@@ -1,3 +1,5 @@
+import { usePluginsFor } from "./plugins.js";
+
 const PROMPT_TEMPLATE = `Take my request and generate a code snippet.
 Request: "bash: Check if a variable is not empty"
 Snippet:if [ -n "$my_variable" ]; then
@@ -25,12 +27,21 @@ end
 Request: "{request}"
 Snippet:`;
 
-export default async (request, openai) => {
-  if (!request || request.length < 3) {
+export default async (requestRaw, openai) => {
+  if (!requestRaw || requestRaw.length < 3) {
     return "";
   }
 
-  const { data: response } = await openai.createCompletion({
+  const { result, request = requestRaw } = await usePluginsFor(
+    "onSnippetRequest",
+    requestRaw
+  );
+
+  if (result) {
+    return result.response.choices[0]?.text;
+  }
+
+  const completionArgs = await usePluginsFor("onCreateCompletionPrepare", {
     model: "text-davinci-003",
     prompt: PROMPT_TEMPLATE.replace("{request}", request),
     temperature: 0,
@@ -40,6 +51,17 @@ export default async (request, openai) => {
     presence_penalty: 0,
     stop: ["---"],
   });
+
+  const { data: response } = await openai.createCompletion(completionArgs);
+
+  const pluginResult = await usePluginsFor("onCreateCompletionResponse", {
+    request,
+    response,
+  });
+
+  if (pluginResult) {
+    return pluginResult.response.choices[0]?.text;
+  }
 
   return response.choices[0]?.text;
 };

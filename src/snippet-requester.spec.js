@@ -1,4 +1,7 @@
 import snippetRequest from "./snippet-requester";
+import * as plugins from "./plugins";
+
+jest.spyOn(plugins, "loadPlugins").mockImplementation();
 
 describe("snippetRequest", () => {
   it("returns a code snippet for a given request", async () => {
