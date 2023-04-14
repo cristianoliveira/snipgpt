@@ -1,4 +1,4 @@
-import { usePluginsFor } from "./plugins.js";
+import { usePluginsFor } from "plugins";
 
 const PROMPT_TEMPLATE = `Take my request and generate a code snippet.
 Request: "bash: Check if a variable is not empty"
