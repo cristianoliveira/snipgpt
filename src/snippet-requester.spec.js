@@ -1,5 +1,5 @@
 import snippetRequest from "./snippet-requester";
-import * as plugins from "./plugins";
+import * as plugins from "plugins";
 
 jest.spyOn(plugins, "loadPlugins").mockImplementation();
 

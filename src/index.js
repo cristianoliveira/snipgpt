@@ -2,11 +2,11 @@
 
 import { program } from "commander";
 import { config } from "dotenv";
+import { loadPlugins, usePluginsFor, setPluginsSettings } from "plugins";
 
 import packageJson from "./package.cjs";
 
 import openaiInit from "./openai.js";
-import { loadPlugins, usePluginsFor } from "./plugins.js";
 import requestSnippet from "./snippet-requester.js";
 
 config();
@@ -16,18 +16,16 @@ const cliArgumentParser = program
   .version(packageJson.version, "-v, --version")
   .description(packageJson.description)
   .argument("[request]", "Use arguments as string to request snippets")
-  .option("--exp-plugin")
+  .option("--exp-plugin", "Enable plugins to run")
+  .option("--plugin-enable <plugin>", "Enable a plugin")
+  .option("--plugin-disable <plugin>", "Disable a plugin")
   .allowUnknownOption(); // Allow flags for plugins
 
 const openai = openaiInit();
 
 cliArgumentParser.parse();
 
-const opts = cliArgumentParser.opts();
-// Experimental plugins
-if (opts.expPlugin) {
-  loadPlugins();
-}
+loadPlugins();
 
 await usePluginsFor("onStart", cliArgumentParser.opts());
 
