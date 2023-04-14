@@ -1,4 +1,4 @@
-# snipgpt [![CI checks](https://github.com/cristianoliveira/snipgpt/actions/workflows/on-push.yml/badge.svg?branch=main)](https://github.com/cristianoliveira/snipgpt/actions/workflows/on-push.yml)
+# snipgpt ![npm](https://img.shields.io/npm/v/snipgpt?color=red) [![CI checks](https://github.com/cristianoliveira/snipgpt/actions/workflows/on-push.yml/badge.svg?branch=main)](https://github.com/cristianoliveira/snipgpt/actions/workflows/on-push.yml)
 
 A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](https://github.com/cristianoliveira/snipgpt.nvim))
 
