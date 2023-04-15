@@ -24,12 +24,13 @@ const openai = openaiInit();
 
 cliArgumentParser.parse();
 
-loadPlugins();
+await loadPlugins();
 
 await usePluginsFor("onStart", cliArgumentParser.opts());
 
 if (cliArgumentParser.args.length) {
   const request = cliArgumentParser.args.join(" ");
+
   const snippet = await requestSnippet(request, openai);
 
   const snippetPosRequest = await usePluginsFor(
