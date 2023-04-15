@@ -1,7 +1,10 @@
-let verbose = false;
+let verbose = process.env.SNIPGPT_VERBOSE;
 export default {
-  onStart: () => {
-    verbose = !!process.argv.find((a) => a === "--verbose");
+  onStart: async () => {
+    verbose = verbose || !!process.argv.find((a) => a === "--verbose");
+    if (verbose) {
+      console.log("onStart");
+    }
   },
 
   onSnippetRequest: async (request) => {

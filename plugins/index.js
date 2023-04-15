@@ -10,8 +10,8 @@ const configFilePath =
   `${process.env.HOME}/${configFolder}/plugins-configs`;
 
 let packages = [
-  "plugins/snipgpt-history/index.js",
   "plugins/snipgpt-logger/index.js",
+  "plugins/snipgpt-history/index.js",
 ];
 
 let plugins = [];
