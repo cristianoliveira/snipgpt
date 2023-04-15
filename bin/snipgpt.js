@@ -28,12 +28,6 @@ loadPlugins();
 
 await usePluginsFor("onStart", cliArgumentParser.opts());
 
-if (process.stdin.isTTY) {
-  console.log("stdin is present");
-} else {
-  console.log("stdin is not present");
-}
-
 if (cliArgumentParser.args.length) {
   const request = cliArgumentParser.args.join(" ");
   const snippet = await requestSnippet(request, openai);
