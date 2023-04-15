@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 import { config } from "dotenv";
-import { loadPlugins, usePluginsFor, setPluginsSettings } from "plugins";
+import { loadPlugins, usePluginsFor } from "plugins";
 
 import packageJson from "../src/package.cjs";
 import openaiInit from "../src/openai.js";
@@ -11,7 +11,7 @@ import requestSnippet from "../src/snippet-requester.js";
 config();
 
 const cliArgumentParser = program
-  .name("snipgpt")
+  .name(packageJson.name)
   .version(packageJson.version, "-v, --version")
   .description(packageJson.description)
   .argument("[request]", "Use arguments as string to request snippets")
@@ -27,6 +27,12 @@ cliArgumentParser.parse();
 loadPlugins();
 
 await usePluginsFor("onStart", cliArgumentParser.opts());
+
+if (process.stdin.isTTY) {
+  console.log("stdin is present");
+} else {
+  console.log("stdin is not present");
+}
 
 if (cliArgumentParser.args.length) {
   const request = cliArgumentParser.args.join(" ");

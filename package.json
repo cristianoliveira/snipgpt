@@ -2,13 +2,13 @@
   "name": "snipgpt",
   "version": "0.1.0",
   "description": "A plugable CLI to generate short snippets using OpenAI LLM",
-  "main": "bin/index.js",
+  "main": "bin/snipgpt.js",
   "type": "module",
   "bin": {
-    "snipgpt": "bin/index.js"
+    "snipgpt": "bin/snipgpt.js"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node bin/snipgpt.js",
     "test": "jest",
     "semantic-release": "semantic-release"
   },
