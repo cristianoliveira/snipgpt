@@ -1,11 +1,11 @@
 {
   "name": "snipgpt",
   "version": "0.1.0",
-  "description": "A CLI to generate short snippets using OpenAI LLM",
-  "main": "src/index.js",
+  "description": "A plugable CLI to generate short snippets using OpenAI LLM",
+  "main": "bin/index.js",
   "type": "module",
   "bin": {
-    "snipgpt": "src/index.js"
+    "snipgpt": "bin/index.js"
   },
   "scripts": {
     "start": "node src/index.js",

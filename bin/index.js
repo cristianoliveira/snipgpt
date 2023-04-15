@@ -4,10 +4,9 @@ import { program } from "commander";
 import { config } from "dotenv";
 import { loadPlugins, usePluginsFor, setPluginsSettings } from "plugins";
 
-import packageJson from "./package.cjs";
-
-import openaiInit from "./openai.js";
-import requestSnippet from "./snippet-requester.js";
+import packageJson from "../src/package.cjs";
+import openaiInit from "../src/openai.js";
+import requestSnippet from "../src/snippet-requester.js";
 
 config();
 
