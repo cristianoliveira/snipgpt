@@ -18,6 +18,7 @@ const cliArgumentParser = program
   .option("--exp-plugin", "Enable plugins to run")
   .option("--plugin-enable <plugin>", "Enable a plugin")
   .option("--plugin-disable <plugin>", "Disable a plugin")
+  .option("-V,--verbose", "Enable verbose output")
   .allowUnknownOption(); // Allow flags for plugins
 
 const openai = openaiInit();
@@ -44,6 +45,9 @@ if (cliArgumentParser.args.length) {
     }
   } catch (e) {
     console.error(e.message);
+    if (opts.verbose) {
+      console.error(e);
+    }
   }
 } else {
   process.stdin.on("data", async (data) => {
@@ -60,6 +64,9 @@ if (cliArgumentParser.args.length) {
       }
     } catch (e) {
       console.error(e.message);
+      if (opts.verbose) {
+        console.error(e);
+      }
     }
   });
 }
