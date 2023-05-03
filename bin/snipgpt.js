@@ -27,24 +27,13 @@ cliArgumentParser.parse();
 await loadPlugins();
 
 await usePluginsFor("onStart", cliArgumentParser.opts());
+const opts = cliArgumentParser.opts();
 
 if (cliArgumentParser.args.length) {
   const request = cliArgumentParser.args.join(" ");
 
-  const snippet = await requestSnippet(request, openai);
-
-  const snippetPosRequest = await usePluginsFor(
-    "onSnippetRequestResponse",
-    snippet
-  );
-
-  if (snippetPosRequest) {
-    console.log(snippetPosRequest);
-  }
-} else {
-  process.stdin.on("data", async (data) => {
-    const snippet = await requestSnippet(`${data}`, openai);
-
+  try {
+    const snippet = await requestSnippet(request, openai);
     const snippetPosRequest = await usePluginsFor(
       "onSnippetRequestResponse",
       snippet
@@ -52,6 +41,25 @@ if (cliArgumentParser.args.length) {
 
     if (snippetPosRequest) {
       console.log(snippetPosRequest);
+    }
+  } catch (e) {
+    console.error(e.message);
+  }
+} else {
+  process.stdin.on("data", async (data) => {
+    try {
+      const snippet = await requestSnippet(`${data}`, openai);
+
+      const snippetPosRequest = await usePluginsFor(
+        "onSnippetRequestResponse",
+        snippet
+      );
+
+      if (snippetPosRequest) {
+        console.log(snippetPosRequest);
+      }
+    } catch (e) {
+      console.error(e.message);
     }
   });
 }
