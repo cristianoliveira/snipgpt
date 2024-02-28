@@ -38,21 +38,14 @@ export default async (requestRaw, openai) => {
   );
 
   if (result) {
-    return result.response.choices[0]?.text;
+    return result.content;
   }
 
   const completionArgs = await usePluginsFor("onCreateCompletionPrepare", {
-    model: "text-davinci-003",
     prompt: PROMPT_TEMPLATE.replace("{request}", request),
-    temperature: 0,
-    max_tokens: 1600,
-    top_p: 1,
-    frequency_penalty: 0.2,
-    presence_penalty: 0,
-    stop: ["---"],
   });
 
-  const { data: response } = await openai.createCompletion(completionArgs);
+  const response = await openai.createCompletion(completionArgs);
 
   const pluginResult = await usePluginsFor("onCreateCompletionResponse", {
     request,
@@ -60,8 +53,8 @@ export default async (requestRaw, openai) => {
   });
 
   if (pluginResult) {
-    return pluginResult.response.choices[0]?.text;
+    return pluginResult.response.content;
   }
 
-  return response.choices[0]?.text;
+  return pluginResult.response.content
 };
