@@ -27,7 +27,8 @@
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
     "openai": "^4.28.0",
-    "plugins": "file:./plugins/"
+    "plugins": "file:./plugins/",
+    "snipgpt": "^0.2.0"
   },
   "repository": {
     "type": "git",
