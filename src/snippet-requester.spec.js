@@ -11,9 +11,7 @@ describe("snippetRequest", () => {
 
     const openai = {
       createCompletion: jest.fn().mockResolvedValue({
-        data: {
-          choices: [{ text: expectedSnippet }],
-        },
+        content: expectedSnippet,
       }),
     };
 
