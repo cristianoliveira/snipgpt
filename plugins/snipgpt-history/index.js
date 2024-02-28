@@ -2,7 +2,7 @@ import fs from "fs";
 import util from "util";
 
 let history = [];
-const HISTORY_LIMIT = 300;
+const HISTORY_LIMIT = 3000;
 const historyFilePath = `${process.env.HOME}/.snipgpt-history.json`;
 
 const readFilePromise = util.promisify(fs.readFile);
