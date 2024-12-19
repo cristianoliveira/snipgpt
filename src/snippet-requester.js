@@ -38,7 +38,7 @@ export default async (requestRaw, openai) => {
   );
 
   if (result) {
-    return result.content;
+    return result.response.content;
   }
 
   const completionArgs = await usePluginsFor("onCreateCompletionPrepare", {
