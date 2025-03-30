@@ -1,6 +1,6 @@
 {
   "name": "snipgpt",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A plugable CLI to generate short snippets using OpenAI LLM",
   "main": "bin/snipgpt.js",
   "type": "module",
