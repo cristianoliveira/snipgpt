@@ -8,6 +8,7 @@
     "snipgpt": "bin/snipgpt.js"
   },
   "scripts": {
+    "build": "echo 'Nothing to build'",
     "start": "node bin/snipgpt.js",
     "test": "jest",
     "semantic-release": "semantic-release"

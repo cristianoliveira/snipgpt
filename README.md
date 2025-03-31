@@ -6,8 +6,7 @@ A CLI to generate short snippets using OpenAI LLM (See also: [snipgpt.nvim](http
 
 **I know what I want to do, but the syntax is on the way.** :)
 
-> Sometimes I just don't remember the syntax when working with a language/lib/coreutils and I just need a snippet to remember how it works. Using Google takes too long and more often than not to useless places. ChatGPT is helpful, but, oh boy, it is verbose. Copilot is a bit inconvenient, it works only on an IDE, and is expensive compared to openai.
->
+> Sometimes I just don't remember the syntax when working with a language/lib/coreutils a> nd I just need a snippet to remember how it works. I wanted a helper that could quick give me a tldr of anything I ask.
 > -- Impatient developer
 
 Common usages:
@@ -63,6 +62,18 @@ Generate generic documentations
 
 ```bash
 echo "a readme of a node app, with 'getting started', 'installation' and 'running' sections" | npx snipgpt > README.md
+```
+
+## Install
+
+```bash
+npm i -g snipgpt
+```
+
+### With nix flakes
+    
+```bash
+nix profile install github:cristianoliveira/snipgpt
 ```
 
 ## Getting started
