@@ -21,7 +21,9 @@
         };
 
         packages = {
-          default = snipgpt;
+          default = pkgs.writeShellScriptBin "snipgpt" ''
+            NODE_NO_WARNINGS=1 ${snipgpt}/bin/snipgpt "$@"
+          '';
         };
     });
 }
